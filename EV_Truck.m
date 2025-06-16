@@ -17,8 +17,10 @@ electric_consumption = table2array(readtable('electric_consumption_LSTM.csv'));
 >>>>>>> eb52a59 (Initial commit)
 %battery_SOC = table2array(readtable('battery_SOC.csv'));
 battery_SOC = table2array(readtable('battery_SOC_INR.csv'));
-motor_torque = readtable('motor_torque.csv');
-motor_efficiency = readtable('motor_efficiency.csv');
+%motor_torque = readtable('motor_torque.csv');
+%motor_efficiency = readtable('motor_efficiency.csv');
+motor_torque = readtable('motor_torque_eactros600.csv');
+motor_efficiency = readtable('motor_efficiency_eactros600.csv');
 %drag_coefficient = readtable('drag_coefficient.csv');
 
 
@@ -42,8 +44,8 @@ motor_efficiency_torque = transpose(motor_efficiency_torque);
 
 Cycle_Speed = table2array(Raw_Data(:,:));
 HWFET_Speed = table2array(Cycle_Data(:,:));
-motor_torque_RPM = table2array(motor_torque(1:14,2));
-motor_RPM_torque = table2array(motor_torque(1:14,1));
+motor_torque_RPM = table2array(motor_torque(1:6,2));
+motor_RPM_torque = table2array(motor_torque(1:6,1));
 
 slope = [1,0];
 Tire_Inertia_Moment = [1,0.1431];
@@ -54,17 +56,20 @@ Differential_Inertia_Moment_Out2 = [1,0.015];
 Final_Drive_Inertia_Moment_In = [1,0.01];
 Final_Drive_Inertia_Moment_Out = [1,0.015];
 Motor_Inertia_Moment_In = [1,0.0226];
-Vehicle_Weight = [1,25000];
+Vehicle_Weight = [1,44000];
 Amb_Temp = [1,25];
 Amb_Press = [1,101.325];
-Wheel_Radius = [1,0.316];
+Wheel_Radius = [1,0.52];
 Differential_Efficiency = [1,0.96];
 Final_Drive_Efficiency = [1,0.96];
-Final_Gear_Ratio = [1,7.4];
+Final_Gear_Ratio = [1,5.29];
+Acceleration_gravity = [1,9.81];
 %Resistance_F0 = [1,53.905];
-Resistance_rolling = [1,588.6];
+Resistance_rolling = [1,0.006];
 Resistance_friction = [1,0.21857];
-Resistance_aero = [1,0.029304];
+%Resistance_aero = [1,0.029304];
+Air_density = [1,1.225];
+Frontal_of_vehicle = [1, 9.84];
 Regenerative_percent = [1,0.7];
 Battery_Capacity = [1,4500];
 
