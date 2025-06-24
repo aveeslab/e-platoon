@@ -10,13 +10,11 @@ Cycle_Data = readtable('HWFET.csv',opts) ;
 
 
 %electric_consumption = table2array(readtable('electric_consumption.csv'));
-<<<<<<< HEAD
 %electric_consumption = table2array(readtable('electric_consumption_LSTM.csv'));
-=======
 electric_consumption = table2array(readtable('electric_consumption_LSTM.csv'));
->>>>>>> eb52a59 (Initial commit)
 %battery_SOC = table2array(readtable('battery_SOC.csv'));
-battery_SOC = table2array(readtable('battery_SOC_INR.csv'));
+%battery_SOC = table2array(readtable('battery_SOC_INR.csv'));
+battery_SOC = table2array(readtable('battery_SOC_U2736XP.csv'));
 %motor_torque = readtable('motor_torque.csv');
 %motor_efficiency = readtable('motor_efficiency.csv');
 motor_torque = readtable('motor_torque_eactros600.csv');
@@ -27,13 +25,10 @@ motor_efficiency = readtable('motor_efficiency_eactros600.csv');
 battery_SOC_SOC = battery_SOC(:,1);
 battery_SOC_voltage = battery_SOC(:,2);
 battery_SOC_resistance = battery_SOC(:,3);
-<<<<<<< HEAD
 %electric_consumption_voltage = electric_consumption(:,1);
 %electric_consumption_ressistancce = electric_consump   tion(:,2);
-=======
 electric_consumption_voltage = electric_consumption(:,1);
 electric_consumption_ressistancce = electric_consumption(:,2);
->>>>>>> eb52a59 (Initial commit)
 
 
 motor_efficiency_RPM = table2array(motor_efficiency(2:height(motor_efficiency),1));
