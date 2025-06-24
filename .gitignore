@@ -12,7 +12,6 @@ slprj/
 # MATLAB temporary
 *.asv
 *.bak
-*.mat
 *.fig
 
 # VS Code settings
