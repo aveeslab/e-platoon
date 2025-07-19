@@ -72,8 +72,9 @@ Battery_Capacity = [1,4500];
 Total_time = [1,inf];
 
 simulation_time = inf ;
-load('EV_Modeling.mat');
+load ('EV_Modeling.mat');
 load ('recurrentNet.mat');
+load ('Batteries.mat');
 net = recurrentNet;
 statefulLSTMNet = net;
 sim_outputs = sim('EV_Modeling',simulation_time);
