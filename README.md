@@ -58,38 +58,30 @@ Depending on what you want to do, you may need:
 
 ```bash
 git clone https://github.com/avees-dev/electric-truck-platoon.git
+```
 
 ### 2. Open the project in MATLAB
 
-Launch MATLAB and move to the repository folder.
+Launch MATLAB and move to the repository folder 'electric-truck-platoon'.
 
 ### 3. Open the script file and run
 
-Run the initialization script before opening or simulating the model:
+Run the live script and click the 'Run' button
 
 ```matlab
-run('init.m')
-
+open('E-Platoon.mlx')
+```
 ## Model Description
 
 This repository contains a Simulink model for **electric truck platooning** with a focus on **CACC-based longitudinal control**.
 
 ### What the model includes
 
-- platoon driving scenario setup
 - CACC logic for follower vehicles
 - vehicle speed and spacing response evaluation
-- signal-level analysis for controller behavior
+- calculate the SOC(State-Of-Charge) of battery
 
-### What the model does not include
-
-- lateral control
-- lane change logic
-- full vehicle dynamics integration
-- hardware deployment pipeline by default
-
-The model is mainly intended for validating longitudinal platoon control performance in a simulation environment.
-
+The model is mainly intended for validating longitudinal platoon control performance (and 그 제어에 따른 배터리 실시간 상태 추정) in a simulation environment.
 ---
 
 ## Inputs and Outputs
@@ -111,7 +103,6 @@ Typical outputs include:
 - relative distance
 - spacing error
 - longitudinal control command
-- simulation signals for post-analysis
 
 ---
 
