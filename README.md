@@ -1,31 +1,38 @@
 # Electric Truck Platooning with CACC
 
-MATLAB/Simulink model for **electric truck platooning** with **CACC-based longitudinal control**.
+<img width="1316" height="273" alt="Electric Truck Platooning with CACC" src="https://github.com/user-attachments/assets/b27d3acf-a832-4b30-9f98-30c6296e1413" />
+
+MATLAB/Simulink model for **3-truck electric platooning** featuring **CACC-based longitudinal control** and **battery SOC estimation (Coulomb counting)**.
 
 This repository focuses on simulating and validating longitudinal platoon behavior, including:
 
 - speed tracking
 - inter-vehicle spacing control
 - cooperative response to lead/preceding vehicle motion
+- SOC estimation via current integration (Coulomb counting)
 
-The current scope is limited to **longitudinal control**. **Lateral control** and **full vehicle integration** are not included in this repository.
+The current scope is limited to **longitudinal control**. **Lateral control** and **full vehicle integration** are not included.
 
 ---
 
 ## Overview
 
-This project provides a Simulink-based platooning model for electric trucks using **Cooperative Adaptive Cruise Control (CACC)**.
+This project provides a Simulink-based platooning model for electric trucks.  
+Each truck includes:
+
+- **CACC longitudinal controller** (lead/follow behavior)
+- **battery SOC estimation** using **current integration (Coulomb counting)**
 
 The model is intended for:
 
-- control algorithm development
-- simulation-based validation
+- cooperative longitudinal control algorithm development
+- SOC estimation logic validation under platooning scenarios
+- simulation-based evaluation and comparison
 - model-based design (MBD) workflow
 - future extension to code generation or higher-level integration
 
-It is designed as a simulation-oriented model for testing how follower vehicles regulate spacing and speed using shared information from the platoon.
-
 ---
+
 
 ## Requirements
 
@@ -36,19 +43,12 @@ It is designed as a simulation-oriented model for testing how follower vehicles 
 - **Simulink**
 
 ### Optional toolboxes
-
-No additional toolbox is required for the basic simulation workflow.
+- **Model Predictive Control Toolbox**
 
 Depending on what you want to do, you may need:
-
-- **Simscape**  
-  Only required if you create or modify battery-related physical models.
-
-- **Simulink Coder**  
-  Only required for code generation.
-
-- **Embedded Coder**  
-  Only required for embedded deployment-oriented code generation.
+- **Simscape** (Required if you create or modify battery-related physical models)
+- **Simulink Coder** (Required for code generation)
+- **Embedded Coder** (Required for embedded deployment-oriented code generation)
 
 ---
 
@@ -66,22 +66,28 @@ Launch MATLAB and move to the repository folder 'electric-truck-platoon'.
 
 ### 3. Open the script file and run
 
-Run the live script and click the 'Run' button
+Open the live script 'E-Platoon.mlx' and click the 'Run' button
 
 ```matlab
 open('E-Platoon.mlx')
 ```
 ## Model Description
 
-This repository contains a Simulink model for **electric truck platooning** with a focus on **CACC-based longitudinal control**.
+This repository contains a Simulink model for **electric truck platooning** for 3 trucks (LV,FV1,FV2) and single truck for comparison.
+Two model variants are provided depending on the battery estimation approach:
+1) EV_modelig.slx : Battery SOC estimation via **Coulomb counting**
+2) EV_modeling_simscape.slx : Battery modeled using **Simscape** (physical model)
+
 
 ### What the model includes
 
-- CACC logic for follower vehicles
+- **CACC (Cooperative Adaptive Cruise Control)** logic for follower vehicles
 - vehicle speed and spacing response evaluation
-- calculate the SOC(State-Of-Charge) of battery
+- battery SOC estimation via **Coulomb counting**
+- simulation signals for controller behavior and SOC trend analysis
 
-The model is mainly intended for validating longitudinal platoon control performance (and 그 제어에 따른 배터리 실시간 상태 추정) in a simulation environment.
+The model is mainly intended for validating **longitudinal platoon control performance** and the **resulting battery state estimation** in a simulation environment.
+
 ---
 
 ## Inputs and Outputs
@@ -105,15 +111,3 @@ Typical outputs include:
 - longitudinal control command
 
 ---
-
-## Workflow
-
-A typical workflow is:
-
-1. Clone the repository
-2. Open the project in MATLAB
-3. Run the initialization script
-4. Open the main Simulink model
-5. Adjust parameters if needed
-6. Run the simulation
-7. Review output signals and controller behavior
